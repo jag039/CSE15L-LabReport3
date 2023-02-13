@@ -95,6 +95,7 @@ skill-demo1-data/written_2/travel_guides/berlitz2/NewOrleans-History.txt:0
 skill-demo1-data/written_2/travel_guides/berlitz2/Paris-WhatToDo.txt:14
 skill-demo1-data/written_2/travel_guides/berlitz2/Paris-WhereToGo.txt:44
 ```
+The -c addon shows the amount of occurnces of the String paris in all files in the directory.
 
 ---
 ### grep -i
@@ -120,7 +121,32 @@ Take the métro to Rambuteau and start at the corner of the rue des Archives and
 ```
 When justing using grep -i, the part of the file containg the matched string is returned.
 
-###
+---
+### grep -n
+Pass the -n option to precede each line of output with the number of the line in the text file from which it was obtained. It is usefull to find out where in the file the search words actually are.
+```
+grep -r -n Lucayans skill-demo1-data/written_2/travel_guides/berlitz2
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Bahamas-History.txt:6:Centuries before the arrival of Columbus, a peaceful Amerindian people who called themselves the Luccucairi had settled in the Bahamas. Originally from South America, they had traveled up through the Caribbean islands, surviving by cultivating modest crops and from what they caught from sea and shore. Nothing in the experience of these gentle people could have prepared them for the arrival of the Pinta, the Niña, and the Santa Maria at San Salvador on 12 October 1492. Columbus believed that he had reached the East Indies and mistakenly called these people Indians. We know them today as the Lucayans. Columbus claimed the island and others in the Bahamas for his royal Spanish patrons, but not finding the gold and other riches he was seeking, he stayed for only two weeks before sailing towards Cuba.
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Bahamas-History.txt:7:The Spaniards never bothered to settle in the Bahamas, but the number of shipwrecks attest that their galleons frequently passed through the archipelago en route to and from the Caribbean, Florida, Bermuda, and their home ports. On Eleuthera the explorers dug a fresh-water well — at a spot now known as “Spanish Wells” — which was used to replenish the supplies of water on their ships before they began the long journey back to Europe with their cargoes of South American gold. As for the Lucayans, within 25 years all of them, perhaps some 30,000 people, were removed from the Bahamas to work — and die — in Spanish gold mines and on farms and pearl fisheries on Hispaniola (Haiti), Cuba, and elsewhere in the Caribbean.
+```
+The first occurence of the string "Lucayans" is in the Bahamas-history.txt line 6 and line 7.
+```
+grep -r -n Nothing skill-demo1-data/written_2/travel_guides/berlitz2
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Bahamas-History.txt:6:Centuries before the arrival of Columbus, a peaceful Amerindian people who called themselves the Luccucairi had settled in the Bahamas. Originally from South America, they had traveled up through the Caribbean islands, surviving by cultivating modest crops and from what they caught from sea and shore. Nothing in the experience of these gentle people could have prepared them for the arrival of the Pinta, the Niña, and the Santa Maria at San Salvador on 12 October 1492. Columbus believed that he had reached the East Indies and mistakenly called these people Indians. We know them today as the Lucayans. Columbus claimed the island and others in the Bahamas for his royal Spanish patrons, but not finding the gold and other riches he was seeking, he stayed for only two weeks before sailing towards Cuba.
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Bali-WhereToGo.txt:162:Practically every brochure for Bali shows this exotic sea temple on its rocky islet, often silhouetted against the setting sun. Inevitably, tour buses converge here in late afternoon so everyone can take that same picture. It is 10 km (6 miles) down a narrow side road from Kediri to the coast, and there can be a long procession of traffic. You might like to plan a dawn visit instead, avoiding at least some of the hawkers who congregate later in the day. Tanah Lot is believed to have been founded in the 16th century by the Javanese priest Nirarta, who dedicated it to the sea god. Now the sea threatens to undermine the rock on which it stands, and concrete breakwaters have been positioned to hold back the waves. Nothing, however, is done to hold back the commercial tide. Ever more souvenir stands and food stalls cluster as near as they can get, and the nearby coast is being developed as a huge, and controversial, resort complex.
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Boston-WhereToGo.txt:101:Nothing in Boston can match the beauty of the courtyard in the Isabella Stewart Gardner Museum. Modeled on a Venetian loggia, the cloister, delicate arches, and salmon-pink marble walls enclose a stunning, atmospheric space lined with mosaic and filled with foliage and classical statuary. Isabella Gardner created Fenway Court in 1903 to hold her outstanding collection of art. A flamboyant New Yorker, her unconventional ways scandalized the Boston Brahmins on more than one occasion. Her portrait by John Singer Sargent (in the Gothic Room) captures her individuality and her eccentricity lives on in her will, which stipulates that all of the 2,000 pieces on display in the house must be left exactly where they are. This decree is qualified by the condition that were anything to change, the museum’s contents would be sold off, with the proceeds going to Harvard University. It’s an extraordinary place filled with great art works which are displayed idiosyncratically in often (for the time) innovative ways. It’s more a personal home than a museum and the works are often poorly lit and cursorily labeled. Each of the rooms displays art of a particular artist — Titian, Raphael, or Veronese — or style — Dutch, Gothic, or early Italian.
+
+skill-demo1-data/written_2/travel_guides/berlitz2/CostaBlanca-History.txt:6:Nothing has had a greater impact on the Costa Blanca than foreign invasion: Iberians, Phoenicians, Greeks, Romans, Visigoths, and Moors had moulded Spain’s Mediterranean shores centuries before international tourism gained a foothold. But before any of these were the Costa Blanca’s first inhabitants: Known as Neanderthal men, they lived primitively and spent a large part of their time hunting. Then, as the Stone Age came to an end, short, dark-skinned Iberians started to make their way from North Africa to the Spanish Peninsula. These fierce fighters skilled in guerrilla warfare roamed the Mediterranean foothills, painting a vivid record of their battles on the walls of their rock shelters.
+
+skill-demo1-data/written_2/travel_guides/berlitz2/Paris-WhereToGo.txt:84:Take the métro to Rambuteau and start at the corner of the rue des Archives and the rue des Francs-Bourgeois, named after the poor (not bourgeois at all) allowed to live here tax-free in the 14th century. The national archives are stored in an 18th-century mansion, Hôtel de Soubise. Across a vast, horseshoe-shaped courtyard, you come across the exquisite Rococo style of Louis XV’s time in the apartments of the Prince and Princess of Soubise. Up on the first floor is the Musée de l’Histoire de France, with gems such as the only known portrait of Joan of Arc painted in her lifetime and the diary kept by Louis XVI. His entry for 14 July 1789, the day the Bastille was stormed, reads Rien (Nothing).
+```
+In this example the grep -r recursively searches through all the files in the directory, and returns the (-n) the line number where the word is, along with the line.
+
 
 
 
