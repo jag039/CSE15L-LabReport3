@@ -1,7 +1,8 @@
 # Lab Report 3
 Jesus Gonzalez - CSE 15L - A17425808 - Feb 12, 2023
 
-## find command
+## grep command
+(source)[https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/]
 ---
 ### grep -c
 The grep can report the number of times that the pattern has been matched for each file using -c (count) option:
@@ -146,6 +147,38 @@ skill-demo1-data/written_2/travel_guides/berlitz2/CostaBlanca-History.txt:6:Noth
 skill-demo1-data/written_2/travel_guides/berlitz2/Paris-WhereToGo.txt:84:Take the métro to Rambuteau and start at the corner of the rue des Archives and the rue des Francs-Bourgeois, named after the poor (not bourgeois at all) allowed to live here tax-free in the 14th century. The national archives are stored in an 18th-century mansion, Hôtel de Soubise. Across a vast, horseshoe-shaped courtyard, you come across the exquisite Rococo style of Louis XV’s time in the apartments of the Prince and Princess of Soubise. Up on the first floor is the Musée de l’Histoire de France, with gems such as the only known portrait of Joan of Arc painted in her lifetime and the diary kept by Louis XVI. His entry for 14 July 1789, the day the Bastille was stormed, reads Rien (Nothing).
 ```
 In this example the grep -r recursively searches through all the files in the directory, and returns the (-n) the line number where the word is, along with the line.
+---
+### grep -l
+Use the -l option to list the file name whose contents mention the string
+```
+grep -r -l Nothing skill-demo1-data
+
+skill-demo1-data/written_2/non-fiction/OUP/Berk/CH4.txt
+skill-demo1-data/written_2/non-fiction/OUP/Berk/ch7.txt
+skill-demo1-data/written_2/non-fiction/OUP/Fletcher/ch1.txt
+skill-demo1-data/written_2/non-fiction/OUP/Kauffman/ch6.txt
+skill-demo1-data/written_2/non-fiction/OUP/Rybczynski/ch1.txt
+skill-demo1-data/written_2/non-fiction/OUP/Rybczynski/ch2.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/HistoryFrance.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/HistoryIndia.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/WhatToJapan.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/WhatToLasVegas.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/WhereToFrance.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/WhereToItaly.txt
+skill-demo1-data/written_2/travel_guides/berlitz1/WhereToLosAngeles.txt
+skill-demo1-data/written_2/travel_guides/berlitz2/Bahamas-History.txt
+skill-demo1-data/written_2/travel_guides/berlitz2/Bali-WhereToGo.txt
+skill-demo1-data/written_2/travel_guides/berlitz2/Boston-WhereToGo.txt
+skill-demo1-data/written_2/travel_guides/berlitz2/CostaBlanca-History.txt
+skill-demo1-data/written_2/travel_guides/berlitz2/Paris-WhereToGo.txt
+```
+The -l option here shows all the files within the directory that contain the string "Nothing"
+
+```
+grep -r -l Lucayans skill-demo1-data
+skill-demo1-data/written_2/travel_guides/berlitz2/Bahamas-History.txt
+```
+Here the -l option shows the only file that contains the string Lucayans.
 
 
 
