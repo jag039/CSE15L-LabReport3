@@ -2,7 +2,7 @@
 Jesus Gonzalez - CSE 15L - A17425808 - Feb 12, 2023
 
 ## grep command
-(source)[https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/]
+[source](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/)
 ---
 ### grep -c
 The grep can report the number of times that the pattern has been matched for each file using -c (count) option:
